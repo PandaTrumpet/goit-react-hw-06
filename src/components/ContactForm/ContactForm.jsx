@@ -1,27 +1,27 @@
 import { useId } from "react";
-import { addContact } from "../../redux/store";
 import { useDispatch } from "react-redux";
+import { addContact } from "../../redux/contactsSlice";
 export default function ContactForm() {
+  const nameId = useId();
+  const numberId = useId();
   const dispatch = useDispatch();
-  const handleSubmit = (e) => {
+  const handleForm = (e) => {
     e.preventDefault();
     const form = e.target;
-    const name = form.elements.name.value;
-    const number = form.elements.number.value;
-    // console.log(name, number);
-    dispatch(addContact(name, number));
+    const nameContact = form.elements.nameContact.value;
+    const numberContact = form.elements.number.value;
+    dispatch(addContact(nameContact, numberContact));
+    // console.log(nameContact, numberContact);
     form.reset();
   };
-  const name = useId();
-  const number = useId();
   return (
     <div>
-      <form onSubmit={handleSubmit}>
-        <label htmlFor={name}>Name</label>
-        <input type="text" id={name} name="name" />
-        <label htmlFor={number}>Number</label>
-        <input type="text" id={number} name="number" />
-        <button type="submit">Add contact</button>
+      <form onSubmit={handleForm}>
+        <label htmlFor={nameId}>Name</label>
+        <input type="text" id={nameId} name="nameContact" />
+        <label htmlFor={numberId}>Number</label>
+        <input type="text" id={numberId} name="number" />
+        <button type="submit">Addcontact</button>
       </form>
     </div>
   );

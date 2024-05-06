@@ -1,13 +1,12 @@
 import { useSelector } from "react-redux";
 import Contact from "../Contact/Contact";
-
 export default function ContactList() {
-  const contacts = useSelector((state) => state.contacts.items);
-  console.log(contacts);
+  const selectContacts = useSelector((state) => state.contacts.items);
+
   return (
-    <>
+    <div>
       <ul>
-        {contacts.map((contact) => {
+        {selectContacts.map((contact) => {
           return (
             <li key={contact.id}>
               <Contact contact={contact} />
@@ -15,6 +14,6 @@ export default function ContactList() {
           );
         })}
       </ul>
-    </>
+    </div>
   );
 }
