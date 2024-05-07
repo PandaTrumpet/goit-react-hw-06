@@ -1,14 +1,16 @@
 import { useId } from "react";
 import { useDispatch, useSelector } from "react-redux";
+import css from "./SearchBox.module.css";
 import { changeFilter } from "../../redux/filtersSlice";
 export default function SearchBox() {
   const nameInput = useId();
   const dispatch = useDispatch();
 
   return (
-    <div>
+    <div className={css.searchContainer}>
       <label htmlFor={nameInput}>Find contact</label>
       <input
+        className={css.searchInput}
         type="text"
         name="search"
         id={nameInput}
