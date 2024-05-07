@@ -5,6 +5,7 @@ import { changeFilter } from "../../redux/filtersSlice";
 export default function SearchBox() {
   const nameInput = useId();
   const dispatch = useDispatch();
+  const selectNameFilter = useSelector((state) => state.filters.name);
 
   return (
     <div className={css.searchContainer}>
