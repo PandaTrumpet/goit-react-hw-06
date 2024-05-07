@@ -1,10 +1,7 @@
 import { useId } from "react";
 import { useDispatch, useSelector } from "react-redux";
-import { searchContact } from "../../redux/filtersSlice";
+import { changeFilter } from "../../redux/filtersSlice";
 export default function SearchBox() {
-  const searchSelector = useSelector((state) => state.filters.name);
-  console.log(searchSelector);
-
   const nameInput = useId();
   const dispatch = useDispatch();
 
@@ -15,7 +12,7 @@ export default function SearchBox() {
         type="text"
         name="search"
         id={nameInput}
-        onChange={(e) => dispatch(searchContact(e.target.value))}
+        onChange={(e) => dispatch(changeFilter(e.target.value))}
       />
     </div>
   );
